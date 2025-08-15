@@ -201,7 +201,7 @@ int lbm_lora_send(const struct device *dev, uint8_t *msg, uint32_t msg_len)
 	 * a failed transmission, and not some minor timing variation between
 	 * modem and driver.
 	 */
-	ret = k_poll(&evt, 1, K_MSEC(2 * air_time));
+	ret = k_poll(&evt, 1, K_MSEC(3 * air_time));
 	if (ret < 0) {
 		if (modem_release(dev)) {
 			LOG_ERR("Packet transmission failed!");
